@@ -93,10 +93,11 @@ I am building a project called **Farm_Esp32_Telegram** with the following hardwa
      * Tank Fertilizer: XX%
      * Schedule: T or F
      * Relay Fertilizer: XX sec ON / OFF
-     * Water Meter: XXXX L/day (reset daily)
+  
    * **Status 4:**
 
      * Pump Fertilizer: T or F
+     * Water Meter: XXXX L/day (reset daily)
 
 ---
 
@@ -117,13 +118,14 @@ I am building a project called **Farm_Esp32_Telegram** with the following hardwa
 
    * `/fertilizer_on_xxxsec` →
 
-     * System replies: `Fertilizer waiting until Tank Water > 80%`
-     * When Tank Water > 80% → relay fertilizer turns ON → system sends Telegram message:
+     * System replies: `Fertilizer waiting until Tank Water > 80% and Pump TW: F`
+     * When Tank Water > 80% and Pump TW: F→ relay fertilizer turns ON → system sends Telegram message:
 
        ```
        Relay Fer: ON
        Schedule Fer: T
-       End Time: YYYY-MM-DD HH:MM:SS
+       Star Time: YYYY-MM-DD HH:MM:SS
+       Duration: xxx Sec 
        ```
 
    * `/fertilizer_off` → immediately turn OFF fertilizer relay → push Telegram message:
